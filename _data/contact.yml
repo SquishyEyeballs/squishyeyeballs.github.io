@@ -3,9 +3,6 @@
 - type: github
   icon: "fab fa-github"
 
-- type: twitter
-  icon: "fa-brands fa-x-twitter"
-
 - type: email
   icon: "fas fa-envelope"
   noblank: true # open link in current tab
@@ -38,3 +35,10 @@
 # - type: threads
 #   icon: 'fa-brands fa-threads'
 #   url: ''                   # Fill with your Threads profile link
+- type: htb
+  icon: "fa-solid fa-cube"
+  url: "https://profile.hackthebox.com/profile/019e75a0-02bd-7064-8ce8-8de431c4f5e7"
+
+- type: virustotal
+  icon: "fa-solid fa-virus"
+  url: "https://www.virustotal.com/gui/user/Squishy.Eyeballs"
