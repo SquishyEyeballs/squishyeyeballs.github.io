@@ -18,7 +18,7 @@ mermaid: true
 | **Incident type** | Multi-stage PowerShell intrusion, consistent with ClickFix |
 | **Severity** | High |
 | **Scope** | One Windows endpoint, one user account |
-| **Delivery** | User-executed PowerShell download cradles; malicious `.jpg.lnk` shortcut archive also present |
+| **Delivery** | PowerShell download cradles; malicious `.jpg.lnk` shortcut archive also present |
 | **Key techniques** | In-memory execution, string obfuscation, environment-variable staging, DLL search-order abuse, Run-key persistence |
 | **Activity window** | Three phases over several days |
 | **Status** | Contained and validated clean. Reimage recommended |
@@ -60,7 +60,7 @@ Phases are relative. Exact dates have been removed.
 
 ```mermaid
 flowchart TD
-    A["User-run PowerShell<br/>HttpClient downloader"] --> B["Script executed in memory<br/>ScriptBlock::Create"]
+    A["PowerShell<br/>HttpClient downloader"] --> B["Script executed in memory<br/>ScriptBlock::Create"]
     B --> C["32-bit PowerShell<br/>second stage read from env:KB"]
     C --> D["Unsigned EXE + malicious dwmapi.dll<br/>dropped to 3 disguised folders"]
     D --> E["2x HKCU Run values<br/>persistence at logon"]
@@ -154,7 +154,7 @@ Full domain values were submitted to the organisation's EDR platform and shared 
 
 | Tactic | Technique | Evidence |
 |---|---|---|
-| Execution | T1204.004 User Execution: Malicious Copy and Paste | ClickFix-style user-run command |
+| Execution | T1204.004 User Execution: Malicious Copy and Paste | ClickFix-family behavioural detection |
 | Execution | T1204.002 User Execution: Malicious File | `.jpg.lnk` shortcut |
 | Execution | T1059.001 Command and Scripting Interpreter: PowerShell | Download cradles, in-memory script blocks |
 | Command and Control | T1105 Ingress Tool Transfer | Payload retrieved from remote domains |
