@@ -21,7 +21,7 @@ mermaid: true
 | **Duration** | At least 14 days before detection (limited by log retention) |
 | **Volume** | 44,000+ failed logons; ~600–760 per hour, 24/7 |
 | **Primary source** | Three Tencent Cloud IPs (AS45090), plus a rotating distributed pool |
-| **Outcome** | No successful unauthorised authentication found. Exposure removed and users moved to an existing SSL VPN on the same day |
+| **Outcome** | No successful unauthorised authentication found. Exposure removed same day; users moved to an existing SSL VPN within two days |
 | **Status** | Contained |
 
 ## 1. Executive Summary
@@ -32,7 +32,7 @@ The investigation found that TCP 443 was forwarded, from any source, to the orga
 
 Security event logs showed **more than 44,000 failed logons in 14 days**, running continuously at around 600–760 per hour, overnight included. IIS logs attributed the activity to automated POST requests against the RD Web login page. Most came from three Tencent Cloud addresses, alongside a rotating pool of IPs across many countries.
 
-Containment was achieved by removing the port-forward. Attack traffic stopped within about three minutes. Gateway and Security log review found **no successful unauthorised authentication** and no evidence of lateral movement, new accounts or recent AD changes. Remote users were migrated the same day to an existing, previously overlooked SSL VPN on the edge router.
+Containment was achieved by removing the port-forward. Attack traffic stopped within about three minutes. Gateway and Security log review found **no successful unauthorised authentication** and no evidence of lateral movement, new accounts or recent AD changes. Remote users were migrated within two days to an existing, previously overlooked SSL VPN on the edge router.
 
 ### Key findings
 
@@ -154,7 +154,7 @@ Two minor anomalies were found in legitimate remote access and referred to the c
 
 - Moved both remote users to the edge router's existing SSL VPN.
 - Repointed their RemoteApp connections directly at the application server over the VPN tunnel, removing any dependency on RD Gateway, RD Web or public 443.
-- Confirmed the line-of-business application loaded correctly for each user.
+- Confirmed the line-of-business application loaded correctly for the first migrated user.
 
 ### Intelligence sharing
 
