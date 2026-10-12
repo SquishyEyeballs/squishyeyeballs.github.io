@@ -1,6 +1,6 @@
 ---
 title: "Port 443 and a Forgotten RD Web Portal: Credential Stuffing Against a Domain Controller"
-date: 2026-10-12 17:00:00 +0100
+date: 2026-10-12 16:30:00 +0100
 categories: [Incident Response, Windows]
 tags: [credential-stuffing, brute-force, rd-gateway, rd-web, iis, active-directory, event-logs, blue-team, mitre-attack]
 description: "A routine request to close a firewall port uncovered a distributed credential-stuffing campaign against an RD Web Access portal hosted on a domain controller. This report covers investigation, containment, root cause and lessons learned."
