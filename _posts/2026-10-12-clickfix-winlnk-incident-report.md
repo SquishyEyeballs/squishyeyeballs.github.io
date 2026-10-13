@@ -4,6 +4,9 @@ date: 2026-10-12 16:00:00 +0100
 categories: [Incident Response, Windows]
 tags: [clickfix, winlnk, powershell, dll-hijacking, persistence, threat-hunting, blue-team, mitre-attack]
 description: "Incident report on a multi-stage, fileless-leaning PowerShell intrusion consistent with ClickFix, covering in-memory execution, DLL search-order abuse, Run-key persistence, response actions and lessons learned."
+image:
+  path: /assets/Thumbnails/clickfix-thumb.png
+  alt: Cartoon eyeball inspecting a Run dialog
 toc: true
 mermaid: true
 ---

@@ -4,6 +4,9 @@ date: 2026-10-12 16:45:00 +0100
 categories: [Incident Response, Windows]
 tags: [unwanted-software, pua, defender, persistence, browser-forensics, prefetch, blue-team, mitre-attack]
 description: "A search for an equipment service manual ended with an unwanted browser installing updater persistence and unexplained PDF installers executing. This post covers what the evidence proved, what it didn't, and how the endpoint was cleaned up."
+image:
+  path: /assets/Thumbnails/pulse-thumb.png
+  alt: Cartoon eyeball inspecting a suspicious installer
 toc: true
 mermaid: true
 ---
