@@ -23,7 +23,7 @@ mermaid: true
 | **Also executed** | PDF-converter installers (two Prefetch entries); effect not established |
 | **Persistence** | Per-user Run value, scheduled task, COM class registration |
 | **Outcome** | Pulse removed; no active Pulse components found; full Defender scan reported zero threats |
-| **Status** | Closed, with documented limitations |
+| **Status** | Investigated; known components removed. Open findings documented below |
 
 ## 1. Executive Summary
 

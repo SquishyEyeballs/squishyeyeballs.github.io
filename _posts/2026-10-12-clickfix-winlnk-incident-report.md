@@ -31,7 +31,7 @@ All identified artefacts were removed. Blocking indicators for three domains and
 
 ### Key findings
 
-- Two separate malicious domains delivered PowerShell payloads that executed without being written to disk.
+- Two separate malicious domains were used for staged PowerShell payload delivery.
 - The Phase 3 chain completed in roughly 90 seconds, from download to persistence.
 - The payload was deployed to **three** disguised directories. The third copy was found only through a timestamp-based filesystem sweep.
 - Two randomly named HKCU Run values provided persistence at logon.
@@ -44,7 +44,7 @@ All identified artefacts were removed. Blocking indicators for three domains and
 
 **Limitations:** Script Block Logging, DNS Client operational logging, Security Event 5156 and process-creation command-line auditing (Event 4688) were not enabled at the time of compromise. Second-stage script content and historical destination IPs could not be recovered.
 
-<!-- CONFIRM: is the ClickFix attribution based on the EDR classification, a recovered lure page or the user's account? Add one sentence here. -->
+The ClickFix attribution rests on the EDR's ClickFix-family behavioural detection and the observed PowerShell patterns. How the commands were launched was not established.
 
 ## 3. Attack Timeline
 
@@ -52,7 +52,7 @@ Phases are relative. Exact dates have been removed.
 
 | Phase | Activity | Outcome |
 |---|---|---|
-| **Phase 1** | Obfuscated PowerShell rebuilds a domain at runtime and pipes remote content into `Invoke-Expression` | Remote script executed in memory |
+| **Phase 1** | Obfuscated PowerShell rebuilds a domain at runtime and pipes remote content into `Invoke-Expression` | Download-and-execute command observed |
 | **Phase 2** | ZIP archive containing `IMG_[redacted].jpg.lnk` found in the user's Recycle Bin | Detected as `Trojan:Win32/WinLNK.H!MTB` |
 | **Phase 3** | HttpClient downloader, then environment-variable second stage, payload drop and persistence, within about 90 seconds | Full compromise; multiple EDR detections |
 
@@ -146,8 +146,6 @@ This ensured the payload re-executed at every user logon.
 | Registry | `HKCU\...\CurrentVersion\Run\<random>` (x2) | Logon persistence |
 | Path pattern | `%LOCALAPPDATA%\...\*_upd_*\` and `...\Windows\Caches\<random>\` | Disguised payload directories |
 
-<!-- CONFIRM: add the dwmapi.dll SHA-256 if retained. -->
-
 Full domain values were submitted to the organisation's EDR platform and shared with threat-intelligence community channels.
 
 ## 6. MITRE ATT&CK Mapping
@@ -155,7 +153,7 @@ Full domain values were submitted to the organisation's EDR platform and shared 
 | Tactic | Technique | Evidence |
 |---|---|---|
 | Execution | T1204.004 User Execution: Malicious Copy and Paste | ClickFix-family behavioural detection |
-| Execution | T1204.002 User Execution: Malicious File | `.jpg.lnk` shortcut |
+| Execution | T1204.002 User Execution: Malicious File | `.jpg.lnk` shortcut detected (execution not confirmed) |
 | Execution | T1059.001 Command and Scripting Interpreter: PowerShell | Download cradles, in-memory script blocks |
 | Command and Control | T1105 Ingress Tool Transfer | Payload retrieved from remote domains |
 | Defence Evasion | T1027 Obfuscated Files or Information | String reassembly, environment-variable staging |
