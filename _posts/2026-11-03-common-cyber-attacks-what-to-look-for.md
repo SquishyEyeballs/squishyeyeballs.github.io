@@ -4,6 +4,9 @@ date: 2026-11-03 12:00:00 +0000
 categories: [Threat Awareness, Microsoft 365]
 tags: [phishing, device-code-phishing, clickfix, malvertising, credential-stuffing, unwanted-software, microsoft-365, entra-id, defender, blue-team, cyber-essentials]
 description: "A practical field guide to the attacks I keep running into as a cloud support engineer: device-code phishing, trusted-link lures, malicious documents, fake installers, ClickFix and credential stuffing, and the signs that give each one away."
+image:
+  path: /assets/Thumbnails/common-attacks-thumb.png
+  alt: Cartoon eyeball with a magnifying glass spotting phishing, fake installers and rogue devices
 toc: true
 mermaid: true
 ---
