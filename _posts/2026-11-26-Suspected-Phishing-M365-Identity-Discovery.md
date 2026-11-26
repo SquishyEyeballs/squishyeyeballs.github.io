@@ -1,7 +1,7 @@
 ---
 title: "From a Suspected Phishing Email to a Microsoft 365 Identity Discovery"
 date: 2026-11-26 18:30:00 +0000
-categories: [Blue Team Notebook, Investigations]
+categories: [Incident Response, Microsoft 365]
 tags: [microsoft-365, entra-id, phishing-investigation, sharepoint, b2b, smart-lockout, password-spraying, shared-mailbox]
 description: "A first-person, anonymised investigation: suspected phishing, precautionary account protection, external guest access, a licensed generic mailbox, and wider authentication probing."
 image:
